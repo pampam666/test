@@ -1,0 +1,605 @@
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Background color for the page */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure it takes at least full height */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a3a;
+            padding: 10px 30px 10px 30px;
+            border-radius: 60px;
+            border: 1px solid #f1c40f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 40px);
+            margin: 40px auto 0 auto;
+            max-width: 1100px;
+        }
+        .navbar img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+        }
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        @font-face {
+            font-family: 'Blauer Nue';
+            src: url('fonts/BlauerNue-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand h1 {
+            font-family: "Blauer Nue";
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: "Blauer Nue";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand p {
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 20px;
+        }
+        .navbar .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .navbar .search-bar i {
+            color: #3a3a3a;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar .nav-links i {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu i {
+            color: #000;
+        }
+        .side-menu .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open {
+            right: 0;
+        }
+
+        .side-menu2 {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu2 a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu2 a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu2 a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .tokped{
+        margin-left: 105px;
+        }
+        .sopi{
+        margin-left: 124px;
+        }
+        .side-menu2 i {
+            color: #000;
+        }
+        .side-menu2 .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu2 .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu2 .brand-name2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open2 {
+            right: 0;
+        }
+
+        /*Gambar*/
+        .gambar {
+            margin: 0 50px 0 auto;
+            width: 700px;
+            height: 700px;
+            background-image: url('Frame 427318916.png');
+            background-size: cover;
+        }
+
+
+        /* Banner image */
+        .banner {
+            margin: 0 150px 0 auto;
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            text-align: right;
+        }
+
+        /* Product grid section */
+        .container {
+            display: flex;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 350px;
+            margin-right: 20px;
+        }
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .search-container input[type="text"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            background-color: #a5a5a5;
+            border: none;
+            color: #1c1c1c;
+        }
+        .search-container .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #1c1c1c;
+        }
+        .sidebar .filter-section {
+            background-color: #333333;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .sidebar .filter-section h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .sidebar .filter-section .price-range {
+            display: flex;
+            justify-content: space-between;
+            color: #d4d4d4;
+        }
+        .sidebar .filter-section input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .sidebar .filter-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #a5a5a5;
+            border: none;
+            color: #1c1c1c;
+            cursor: pointer;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .product-row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .product-card {
+            background-color: #4d4d4d;
+            width: 250px;
+            margin: 10px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            background-color: #000000;
+        }
+        .product-card h4 {
+            margin: 10px 0 5px 0;
+            font-size: 18px;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #d4d4d4;
+        }
+        .product-card .price {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .product-card button {
+            padding: 10px;
+            background-color: #000000;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Footer section */
+        @font-face {
+            font-family: 'Kanit';
+            src: url('fonts/kanit/Kanit-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 50px;
+            background-color: #000;
+            color: #fff;
+        }
+        .footer-column1 {
+            font-family: 'Kanit';
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 420px;
+        }
+        .footer-column1 h2 {
+            font-size: 24px;
+            margin: 5px 0;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-column1 p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        .footer-column2 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-left: 30px;
+            width: 170px;
+        }
+        .footer-column3 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+        .footer-column4 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-right: 75px;
+        }
+        .email, .highlight{
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .igdanwa
+        {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">
+            <img alt="Brand logo" src="Logo Jauhar Skincare 1.png"/>
+            <div>
+                <h1>Jauhar</h1>
+                <p>Skincare</p>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <i class="fas fa-shopping-cart" onclick="toggleMenu('side-menu2', 'menu-open2')"></i>
+            <i class="fas fa-bars" onclick="toggleMenu('side-menu', 'menu-open')"></i>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <a class="menu-item" href="product.html">
+            Product
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="blog.html">
+            Blog
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="testimoni.html">
+            Review
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="#footer-column1">
+            About Us
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="logo">
+            <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name">Jauhar Skincare</div>
+    </div>
+
+        <!-- Side Menu 2 -->
+        <div class="side-menu2" id="side-menu2">
+            <a class="menu-item2" href="product.html">
+                Tokopedia
+                <img class="tokped" src="tokped.png" alt="Tokopedia Icon">
+            </a>
+            <a class="menu-item2" href="blog.html">
+                Shopee
+                <img class="sopi" src="sopi.png" alt="Shopee Icon">
+            </a>
+            <div class="logo">
+                <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+            </div>
+            <div class="brand-name2">Jauhar Skincare</div>
+        </div>
+
+    <!-- Gambar -->
+     <div class="gambar"></div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h2>EXPLORE OUR<br>PRODUCTS.</h2>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container">
+        <div class="sidebar">
+            <div class="search-container">
+                <input placeholder="Search here" type="text"/>
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="filter-section">
+                <h3>Price</h3>
+                <div class="price-range">
+                    <span>10.000</span>
+                    <span>30.000</span>
+                </div>
+                <input max="30000" min="10000" type="range" value="20000"/>
+                <button>Apply</button>
+            </div>
+            <div class="filter-section">
+                <h3>Category</h3>
+                <div>
+                    <p>&gt; Dry Skin</p>
+                    <p>&gt; Oil Skin</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-grid">
+            <div class="product-row">
+                <div class="product-card">
+                    <img alt="Facial Wash" src="foto-1.png"/>
+                    <h4>Facial Wash</h4>
+                    <p>Fresh and oil free- skin</p>
+                    <p class="price">IDR 39.900</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+                <div class="product-card">
+                    <img alt="Toner" src="foto-2.png"/>
+                    <h4>Moisturizer</h4>
+                    <p>Healty Skin , Confidence All Day</p>
+                    <p class="price">IDR 49.000</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+                <div class="product-card">
+                    <img alt="Moisturizer" src="foto-3.png"/>
+                    <h4>Toner</h4>
+                    <p>Cool and Calm SKin All Day</p>
+                    <p class="price">IDR 55.000</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+            </div>
+            <div class="product-row">
+                <div class="product-card">
+                    <img alt="Glow Serum" src="foto-4.png"/>
+                    <h4>Glow Serum</h4>
+                    <p>Bright and Glow Skin</p>
+                    <p class="price">IDR 59.900</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+                <div class="product-card">
+                    <img alt="Daily Sunscreen" src="foto-5.png"/>
+                    <h4>Daily Sunscreen SPF 50</h4>
+                    <p>Optimal protection for sensitive </p>
+                    <p class="price">IDR 45.000</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+                <div class="product-card">
+                    <img alt="Nature Mask" src="foto-6.png"/>
+                    <h4>Nature Mask</h4>
+                    <p>Kaolin clay for gantel cleansing</p>
+                    <p class="price">IDR 9.500</p>
+                    <a href="etalase.html"><button>Add To Cart</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <div class="footer-container">
+        <div class="footer-column1">
+            <h2>We would love to hear from you.</h2>
+            <p>You can drop us a line via email</p>
+            <p><a class="email" href="mailto:jauharskincare@gmail" target="_blank">jauharskincare@gmail.com</a></p>
+        </div>
+        <div class="footer-column2">
+            <p class="highlight">Our address</p>
+            <p>Ketintang Wiyata Street</p>
+            <p>Wonokromo District</p>
+            <p>Surabaya City</p>
+            <p>East Java</p>
+            <p>Indonesia</p>
+        </div>
+        <div class="footer-column3">
+            <p>Home</p>
+            <p>Product</p>
+            <p>Blog</p>
+            <p>Testimoni</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="footer-column4">
+            <p class="highlight">Follow Us</p>
+            <p><a class="igdanwa" href="http://www.instagram.com/jauhar.skincare" target="_blank">Instagram</a></p>
+            <p><a class="igdanwa" href="https://wa.me/6285775754717" target="_blank">WhatsApp</a></p>
+        </div>
+    </div>
+    <!-- Script -->
+    <script>  
+        function toggleMenu(menuId, menuClass) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuToToggle = document.getElementById(menuId);  
+    
+            // Cek apakah menu yang ingin dibuka sudah terbuka  
+            const isMenuOpen = menuToToggle.classList.contains(menuClass);  
+    
+            // Tutup semua menu terlebih dahulu  
+            menu1.classList.remove('menu-open');  
+            menu2.classList.remove('menu-open2');  
+    
+            // Jika menu yang diklik tidak terbuka, buka menu tersebut  
+            if (!isMenuOpen) {  
+                menuToToggle.classList.add(menuClass);  
+            }  
+        }  
+    
+        // Close menu when clicking outside  
+        document.addEventListener('click', function(event) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menuButton1 = document.querySelector('.navbar .nav-links i.fas.fa-bars');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuButton2 = document.querySelector('.navbar .nav-links i.fas.fa-shopping-cart');  
+    
+            if (!menu1.contains(event.target) && event.target !== menuButton1 && !menuButton1.contains(event.target)) {  
+                menu1.classList.remove('menu-open');  
+            }  
+            if (!menu2.contains(event.target) && event.target !== menuButton2 && !menuButton2.contains(event.target)) {  
+                menu2.classList.remove('menu-open2');  
+            }  
+        });  
+    </script>
+</body>
+</html>

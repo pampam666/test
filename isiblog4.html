@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jauhar Skincare - Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom,
+            #79797A 0%,   
+            #D7D1C6 22.01%);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 10px 30px 10px 30px;
+            border-radius: 60px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 40px);
+            margin: 40px auto 20px auto;
+            max-width: 1100px;
+
+            border: 0.5px solid #FFF;
+            background: linear-gradient(180deg, rgba(254, 206, 106, 0.21) 19.95%, rgba(255, 255, 255, 0.12) 113.05%);
+            box-shadow: 0px 4px 9.3px 0px rgba(244, 186, 65, 0.31);
+            backdrop-filter: blur(6.5px);
+        }
+        .navbar img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+        }
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        @font-face {
+            font-family: 'Blauer Nue';
+            src: url('fonts/BlauerNue-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand h1 {
+            font-family: "Blauer Nue";
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: "Blauer Nue";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand p {
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 20px;
+        }
+        .navbar .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .navbar .search-bar i {
+            color: #3a3a3a;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar .nav-links i {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu i {
+            color: #000;
+        }
+        .side-menu .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open {
+            right: 0;
+        }
+
+        .side-menu2 {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu2 a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu2 a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu2 a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .tokped{
+        margin-left: 105px;
+        }
+        .sopi{
+        margin-left: 124px;
+        }
+        .side-menu2 i {
+            color: #000;
+        }
+        .side-menu2 .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu2 .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu2 .brand-name2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open2 {
+            right: 0;
+        }
+
+
+        /*Isi content*/
+        @font-face {
+        font-family: 'Blauer Nue';
+        src: url('fonts/BlauerNue-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        }
+        .linkatas{
+        color: #FFF;
+        font-family: "Blauer Nue";
+        font-size: 20px;
+        font-style: normal;
+        letter-spacing: 2px;
+        margin-left: 100px;
+        margin-top: 40px;
+        }
+        .linkatas a {
+        color: inherit;
+        text-decoration: none;
+        }
+
+        .blog-title {
+            color: #FFF;
+            letter-spacing: 1px;
+            font-size: 36px;
+            font-family: Roboto;
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            margin-left: 95px;
+        }
+        .blog-image {
+            width: 600px;
+            height: 300px;
+            background-color: #fff;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            margin-left: 95px;
+        }
+        @font-face {
+        font-family: 'Roboto';
+        src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+        .blog-content{
+            color: #000;
+            letter-spacing: 0.5px;
+            text-align: justify;
+            margin-left: 95px;
+            margin-right: 95px;
+            margin-bottom: 100px;
+            font-family: Roboto;
+        }
+        .blog-content h1{
+            font-size: 36px;
+        }
+        .blog-content h2{
+            font-size: 30px;
+        }
+        .blog-content p{
+            font-size: 20px;
+        }
+
+        /* Footer section */
+            @font-face {
+        font-family: 'Kanit';
+        src: url('fonts/kanit/Kanit-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 50px;
+            background-color: #000;
+            color: #fff;
+        }
+        .footer-column1 {
+            font-family: 'Kanit';
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 420px;
+        }
+        .footer-column1 h2 {
+            font-size: 24px;
+            margin: 5px 0;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-column1 p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        .footer-column2 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-left: 30px;
+            width: 170px;
+        }
+        .footer-column3 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+        .footer-column4 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-right: 75px;
+        }
+        .email, .highlight{
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .igdanwa
+        {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">
+            <img alt="Brand logo" src="Logo Jauhar Skincare 1.png"/>
+            <div>
+                <h1>Jauhar</h1>
+                <p>Skincare</p>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <i class="fas fa-shopping-cart" onclick="toggleMenu('side-menu2', 'menu-open2')"></i>
+            <i class="fas fa-bars" onclick="toggleMenu('side-menu', 'menu-open')"></i>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <a class="menu-item" href="product.html">
+            Product
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="blog.html">
+            Blog
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="testimoni.html">
+            Review
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="#">
+            About Us
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="logo">
+            <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name">Jauhar Skincare</div>
+    </div>
+
+        <!-- Side Menu 2 -->
+        <div class="side-menu2" id="side-menu2">
+            <a class="menu-item2" href="product.html">
+                Tokopedia
+                <img class="tokped" src="tokped.png" alt="Tokopedia Icon">
+            </a>
+            <a class="menu-item2" href="blog.html">
+                Shopee
+                <img class="sopi" src="sopi.png" alt="Shopee Icon">
+            </a>
+            <div class="logo">
+                <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+            </div>
+            <div class="brand-name2">Jauhar Skincare</div>
+        </div>
+    
+    
+        <!-- Isi content -->
+        <div class="linkatas">
+            <a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Tricks to Tackle Common Skin Issues: Acne, Dark Spots, and Wrinkles
+        </div>
+        <div class="blog-title">
+            Tricks to Tackle Common Skin Issues: Acne, Dark Spots, and Wrinkles
+        </div>
+        <div class="blog-content">
+            <h1></h1>
+            <p>
+                Healthy, glowing skin is something everyone desires, but common skin issues like acne, dark spots, and wrinkles can sometimes get in the way. Addressing these problems requires understanding what causes them and how to treat them effectively. Whether you’re aiming for a “gentleman skin” look or just want to maintain pure skin, avoiding common skincare mistakes is essential. Here are some practical tips to help you tackle these skin issues and keep your complexion looking its best.
+            </p>
+            <h2>1. Dealing with Acne
+            </h2>
+            <p>
+                Acne is often caused by clogged pores, excess oil production, and bacteria buildup. Tackling acne effectively requires a consistent routine that targets these issues without over-drying the skin.
+            </p>
+            <p>Tricks: Cleanse Regularly: Use a gentle, salicylic acid-based cleanser twice daily to remove excess oil and keep pores clear. Avoid harsh scrubs that can irritate the skin and exacerbate acne.
+            Spot Treatment: For active breakouts, apply a spot treatment containing benzoyl peroxide or tea tree oil to help reduce inflammation and kill acne-causing bacteria.
+            Moisturize: Even if you have oily or acne-prone skin, don’t skip moisturizer! Opt for an oil-free, non-comedogenic moisturizer to maintain hydration without clogging your pores.</p>
+            <h2>2. Fading Dark Spots
+            </h2>
+            <p>
+                Dark spots, also known as hyperpigmentation, are caused by sun exposure, acne scars, or hormonal changes. Treating dark spots requires patience and a combination of brightening ingredients and sun protection.
+            </p>
+            <p>Tricks: Incorporate Vitamin C: Use a serum with vitamin C in your morning routine to help brighten dark spots and even out skin tone.
+Exfoliate Gently: Exfoliating a few times a week with products containing alpha hydroxy acids (AHAs) can help remove dead skin cells and improve the appearance of dark spots over time.
+Sunscreen Is Key: Dark spots can worsen with sun exposure, so wear a broad-spectrum sunscreen with SPF 30 or higher daily to prevent them from getting darker.</p>
+            <h2>3. Minimizing Wrinkles
+            </h2>
+            <p>
+                Wrinkles are a natural part of aging but can appear prematurely due to sun exposure, smoking, or repetitive facial expressions. While you can’t completely avoid wrinkles, you can certainly minimize their appearance.
+            </p>
+            <p>Tricks:
+Stay Hydrated: Hydrated skin looks plumper and smoother. Drink plenty of water and use a hydrating moisturizer with ingredients like hyaluronic acid to lock in moisture and reduce the appearance of fine lines.
+Use Retinoids: Retinoids, like retinol, are derived from vitamin A and are highly effective at reducing wrinkles. Start with a low concentration and use it in your nighttime routine to stimulate collagen production and smooth out fine lines.
+Antioxidant Protection: Incorporate antioxidants, like vitamins C and E, to help protect your skin from free radical damage that can lead to premature wrinkles.</p>
+            <h2>Final Thoughts</h2>
+            <p>
+                Staying consistent with your skincare routine and using the right products for your skin type are essential steps in achieving that gentleman skin look. Avoid common mistakes like over-washing, skipping sunscreen, and using products with harsh ingredients. By following these tricks and staying hydrated, you’ll be well on your way to achieving pure, healthy skin.
+            </p>
+        </div>
+
+        <!-- Footer section -->
+        <div class="footer-container">
+            <div class="footer-column1">
+                <h2>We would love to hear from you.</h2>
+                <p>You can drop us a line via email</p>
+                <p><a class="email" href="mailto:jauharskincare@gmail" target="_blank">jauharskincare@gmail.com</a></p>
+            </div>
+            <div class="footer-column2">
+                <p class="highlight">Our address</p>
+                <p>Ketintang Wiyata Street</p>
+                <p>Wonokromo District</p>
+                <p>Surabaya City</p>
+                <p>East Java</p>
+                <p>Indonesia</p>
+            </div>
+            <div class="footer-column3">
+                <p>Home</p>
+                <p>Product</p>
+                <p>Blog</p>
+                <p>Testimoni</p>
+                <p>Contact Us</p>
+            </div>
+            <div class="footer-column4">
+                <p class="highlight">Follow Us</p>
+                <p><a class="igdanwa" href="http://www.instagram.com/jauhar.skincare" target="_blank">Instagram</a></p>
+                <p><a class="igdanwa" href="https://wa.me/6285775754717" target="_blank">WhatsApp</a></p>
+            </div>
+        </div>
+
+
+    <!-- Script -->
+    <script>  
+        function toggleMenu(menuId, menuClass) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuToToggle = document.getElementById(menuId);  
+    
+            // Cek apakah menu yang ingin dibuka sudah terbuka  
+            const isMenuOpen = menuToToggle.classList.contains(menuClass);  
+    
+            // Tutup semua menu terlebih dahulu  
+            menu1.classList.remove('menu-open');  
+            menu2.classList.remove('menu-open2');  
+    
+            // Jika menu yang diklik tidak terbuka, buka menu tersebut  
+            if (!isMenuOpen) {  
+                menuToToggle.classList.add(menuClass);  
+            }  
+        }  
+    
+        // Close menu when clicking outside  
+        document.addEventListener('click', function(event) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menuButton1 = document.querySelector('.navbar .nav-links i.fas.fa-bars');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuButton2 = document.querySelector('.navbar .nav-links i.fas.fa-shopping-cart');  
+    
+            if (!menu1.contains(event.target) && event.target !== menuButton1 && !menuButton1.contains(event.target)) {  
+                menu1.classList.remove('menu-open');  
+            }  
+            if (!menu2.contains(event.target) && event.target !== menuButton2 && !menuButton2.contains(event.target)) {  
+                menu2.classList.remove('menu-open2');  
+            }  
+        });  
+    </script>
+    </body>
+</html>

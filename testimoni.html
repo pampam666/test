@@ -1,0 +1,503 @@
+<html>
+<head>
+    <title>Jauhar Skincare - Testimoni</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Background color for the page */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure it takes at least full height */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a3a;
+            padding: 10px 30px 10px 30px;
+            border-radius: 60px;
+            border: 1px solid #f1c40f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 40px);
+            margin: 40px auto 20px auto;
+            max-width: 1100px;
+        }
+        .navbar img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+        }
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        @font-face {
+            font-family: 'Blauer Nue';
+            src: url('fonts/BlauerNue-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand h1 {
+            font-family: "Blauer Nue";
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: "Blauer Nue";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand p {
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 20px;
+        }
+        .navbar .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .navbar .search-bar i {
+            color: #3a3a3a;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar .nav-links i {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu i {
+            color: #000;
+        }
+        .side-menu .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open {
+            right: 0;
+        }
+
+        .side-menu2 {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu2 a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu2 a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu2 a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .tokped{
+        margin-left: 105px;
+        }
+        .sopi{
+        margin-left: 124px;
+        }
+        .side-menu2 i {
+            color: #000;
+        }
+        .side-menu2 .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu2 .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu2 .brand-name2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open2 {
+            right: 0;
+        }
+
+        /* Banner styling */
+        .banner {
+            margin: 40px auto;
+            width: calc(100% - 40px);
+            max-width: 1100px;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Testimonial Header Styling */
+        .testimonial-header {
+            background-color: #1c1c1c; /* Background color for header */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .testimonial-header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .testimonial-header p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Testimonial section styling */
+        .testimonial-container {
+            padding: 20px 0 20px 100px;
+            background: linear-gradient(to bottom left, #CFFF11, #1B1B1D); /* Outer gradient */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .testimonial {
+            width: 85%;
+            padding: 20px 0 20px 20px;
+            border-radius: 20px;
+            border: 1px solid #000;
+            background: linear-gradient(to right, #CBCBE0, #8F8FA9, #CBCBE0); /* Inner gradient */
+            margin-bottom: 20px; /* Space between testimonials */
+        }
+        .testimonial h2 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+        }
+        .testimonial hr {
+            border: 0;
+            border-top: 1px solid #000;
+            margin: 10px 0;
+        }
+        .testimonial p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+
+        /* Footer styling */
+        /* Footer section */
+        @font-face {
+            font-family: 'Kanit';
+            src: url('fonts/kanit/Kanit-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 50px;
+            background-color: #000;
+            color: #fff;
+        }
+        .footer-column1 {
+            font-family: 'Kanit';
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 420px;
+        }
+        .footer-column1 h2 {
+            font-size: 24px;
+            margin: 5px 0;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-column1 p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        .footer-column2 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-left: 30px;
+            width: 170px;
+        }
+        .footer-column3 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+        .footer-column4 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-right: 75px;
+        }
+        .email, .highlight{
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .igdanwa
+        {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">
+            <img alt="Brand logo" src="Logo Jauhar Skincare 1.png"/>
+            <div>
+                <h1>Jauhar</h1>
+                <p>Skincare</p>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <i class="fas fa-shopping-cart" onclick="toggleMenu('side-menu2', 'menu-open2')"></i>
+            <i class="fas fa-bars" onclick="toggleMenu('side-menu', 'menu-open')"></i>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <a class="menu-item" href="product.html">
+            Product
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="blog.html">
+            Blog
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="testimoni.html">
+            Review
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="#">
+            About Us
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="logo">
+            <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name">Jauhar Skincare</div>
+    </div>
+
+        <!-- Side Menu 2 -->
+        <div class="side-menu2" id="side-menu2">
+            <a class="menu-item2" href="product.html">
+                Tokopedia
+                <img class="tokped" src="tokped.png" alt="Tokopedia Icon">
+            </a>
+            <a class="menu-item2" href="blog.html">
+                Shopee
+                <img class="sopi" src="sopi.png" alt="Shopee Icon">
+            </a>
+            <div class="logo">
+                <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+            </div>
+            <div class="brand-name2">Jauhar Skincare</div>
+        </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h2>What Our Customers Say</h2>
+    </div>
+
+    <!-- Testimonial Header -->
+    <div class="testimonial-header">
+        <h1>TESTIMONI</h1>
+        <p>Jauhar makes your skin still Gantleman</p>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial-container">
+        <div class="testimonial">
+            <h2>"Nice product"</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat deleniti blanditiis ipsam earum provident nemo accusantium optio rerum corrupti commodi nam, quasi est! Nostrum, hic eligendi fugit magnam vitae iusto.</p>
+        </div>
+        <div class="testimonial">
+            <h2>"Nice product"</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat deleniti blanditiis ipsam earum provident nemo accusantium optio rerum corrupti commodi nam, quasi est! Nostrum, hic eligendi fugit magnam vitae iusto.</p>
+        </div>
+        <div class="testimonial">
+            <h2>"Nice product"</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat deleniti blanditiis ipsam earum provident nemo accusantium optio rerum corrupti commodi nam, quasi est! Nostrum, hic eligendi fugit magnam vitae iusto.</p>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <div class="footer-container">
+        <div class="footer-column1">
+            <h2>We would love to hear from you.</h2>
+            <p>You can drop us a line via email</p>
+            <p><a class="email" href="mailto:jauharskincare@gmail" target="_blank">jauharskincare@gmail.com</a></p>
+        </div>
+        <div class="footer-column2">
+            <p class="highlight">Our address</p>
+            <p>Ketintang Wiyata Street</p>
+            <p>Wonokromo District</p>
+            <p>Surabaya City</p>
+            <p>East Java</p>
+            <p>Indonesia</p>
+        </div>
+        <div class="footer-column3">
+            <p>Home</p>
+            <p>Product</p>
+            <p>Blog</p>
+            <p>Testimoni</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="footer-column4">
+            <p class="highlight">Follow Us</p>
+            <p><a class="igdanwa" href="http://www.instagram.com/jauhar.skincare" target="_blank">Instagram</a></p>
+            <p><a class="igdanwa" href="https://wa.me/6285775754717" target="_blank">WhatsApp</a></p>
+        </div>
+    </div>
+    <!-- Script -->
+    <script>  
+        function toggleMenu(menuId, menuClass) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuToToggle = document.getElementById(menuId);  
+    
+            // Cek apakah menu yang ingin dibuka sudah terbuka  
+            const isMenuOpen = menuToToggle.classList.contains(menuClass);  
+    
+            // Tutup semua menu terlebih dahulu  
+            menu1.classList.remove('menu-open');  
+            menu2.classList.remove('menu-open2');  
+    
+            // Jika menu yang diklik tidak terbuka, buka menu tersebut  
+            if (!isMenuOpen) {  
+                menuToToggle.classList.add(menuClass);  
+            }  
+        }  
+    
+        // Close menu when clicking outside  
+        document.addEventListener('click', function(event) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menuButton1 = document.querySelector('.navbar .nav-links i.fas.fa-bars');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuButton2 = document.querySelector('.navbar .nav-links i.fas.fa-shopping-cart');  
+    
+            if (!menu1.contains(event.target) && event.target !== menuButton1 && !menuButton1.contains(event.target)) {  
+                menu1.classList.remove('menu-open');  
+            }  
+            if (!menu2.contains(event.target) && event.target !== menuButton2 && !menuButton2.contains(event.target)) {  
+                menu2.classList.remove('menu-open2');  
+            }  
+        });  
+    </script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<html>
+<head>
+    <title>Jauhar Skincare - Testimoni</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Background color for the page */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure it takes at least full height */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a3a;
+            padding: 10px 30px 10px 30px;
+            border-radius: 60px;
+            border: 1px solid #f1c40f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: calc(100% - 40px);
+            margin: 40px auto 20px auto;
+            max-width: 1100px;
+        }
+        .navbar img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+        }
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        @font-face {
+            font-family: 'Blauer Nue';
+            src: url('fonts/BlauerNue-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand h1 {
+            font-family: "Blauer Nue";
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: "Blauer Nue";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .navbar .brand p {
+            margin: 0 0 0 20px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 20px;
+        }
+        .navbar .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+        }
+        .navbar .search-bar i {
+            color: #3a3a3a;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar .nav-links i {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .side-menu {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu i {
+            color: #000;
+        }
+        .side-menu .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open {
+            right: 0;
+        }
+
+        .side-menu2 {
+            position: fixed;
+            right: -300px;
+            top: 130px;
+            width: 250px;
+            height: calc(100% - 80px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            border-radius: 30px 0 0 40px;
+        }
+        .side-menu2 a {
+            display: block;
+            color: #000;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid;
+            font-size: 18px;
+            background: linear-gradient(to right, #fff, #fff);
+            border-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), #F4BA41) 1;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .side-menu2 a:hover {
+            background: linear-gradient(to right, #fff, #f0e68c);
+        }
+        .side-menu2 a img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .tokped{
+        margin-left: 105px;
+        }
+        .sopi{
+        margin-left: 124px;
+        }
+        .side-menu2 i {
+            color: #000;
+        }
+        .side-menu2 .logo {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .side-menu2 .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        .side-menu2 .brand-name2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 1px 1px 2px #f0e68c;
+            text-align: center;
+        }
+        .menu-open2 {
+            right: 0;
+        }
+
+        /*Etalase Produk*/
+        .container {  
+            display: flex;  
+            background-color: #333;  
+            padding: 0;  
+            border-radius: 10px;  
+            width: 1000px;
+            margin-left: 175px;
+            margin-top: 30px;
+        }  
+
+        .product-image {  
+            background-color: #fff;  
+            padding: 20px;  
+            border-radius: 10px;  
+            position: relative;  
+            width: 400px; /* Konsisten ukuran kotak gambar */  
+            height: 400px; /* Konsisten tinggi kotak gambar */  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }  
+
+        .product-image img {  
+            max-width: 100%;  
+            max-height: 100%; /* Memastikan gambar tidak melebihi kotak */  
+            object-fit: cover; /* Menjaga aspek rasio gambar */  
+        }  
+
+        .product-image .arrow {  
+            position: absolute;  
+            top: 50%;  
+            transform: translateY(-50%);  
+            background-color: rgba(255, 255, 255, 0.8); /* Translucent background */  
+            border: 2px solid #000;  
+            border-radius: 50%;  
+            width: 40px;  
+            height: 40px;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            cursor: pointer;  
+        }  
+
+        .product-image .arrow.left {  
+            left: 10px; /* Geser ke dalam kotak */  
+        }  
+
+        .product-image .arrow.right {  
+            right: 10px; /* Geser ke dalam kotak */  
+        }  
+
+        .product-details {  
+            background-color: #fff;  
+            padding: 20px;  
+            border-radius: 10px;  
+            margin-left: 20px;  
+            position: relative;  
+            width: 600px; /* Konsisten ukuran kotak review */  
+            height: 400px; /* Konsisten tinggi kotak review */  
+            display: flex;  
+            flex-direction: column;  
+            text-align: left;
+            justify-content: flex-start;  
+        }  
+
+        .product-details .close {  
+            position: absolute;  
+            top: 10px;  
+            right: 10px;  
+            cursor: pointer;  
+            font-size: 20px;  
+        }  
+
+        .product-details h1 {  
+            font-size: 24px;  
+            margin: 100px 0 0 0; 
+        }  
+
+        .product-details .stars {  
+            color: #ffcc00;  
+            margin: 10px 0;  
+        }  
+
+        .product-details .stars::after {  
+            content: "";  
+            display: block;  
+            width: 100%;  
+            height: 1px;  
+            background-color: #000;  
+            margin-top: 10px;  
+        }  
+
+        .product-details p {  
+            font-size: 14px;  
+            line-height: 1.5;  
+            margin: 10px 0;  
+        }  
+
+        .product-details .price {  
+            font-size: 18px;  
+            font-weight: bold;  
+            margin: 10px 0;  
+        }  
+
+        .product-details .buy-button {  
+            display: flex;  
+            align-items: center;  
+            background-color: #fff;  
+            border: 2px solid #000;  
+            border-radius: 20px;  
+            padding: 5px 10px;  
+            cursor: pointer;  
+            font-size: 14px;  
+            font-weight: bold;  
+            width: 80px;  
+            justify-content: space-between;  
+        }  
+
+        .product-details .buy-button i {  
+            margin-left: 5px;  
+        }  
+
+        /* Footer section */
+        @font-face {
+            font-family: 'Kanit';
+            src: url('fonts/kanit/Kanit-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 50px;
+            background-color: #000;
+            color: #fff;
+        }
+        .footer-column1 {
+            font-family: 'Kanit';
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 420px;
+        }
+        .footer-column1 h2 {
+            font-size: 24px;
+            margin: 5px 0;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .footer-column1 p {
+            font-size: 16px;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        .footer-column2 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-left: 30px;
+            width: 170px;
+        }
+        .footer-column3 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 80px;
+        }
+        .footer-column4 {
+            font-family: 'Kanit';
+            margin-top: 10px;
+            margin-right: 75px;
+        }
+        .email, .highlight{
+            color: #FFD700;
+            text-decoration: none;
+        }
+        .igdanwa
+        {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="brand">
+            <img alt="Brand logo" src="Logo Jauhar Skincare 1.png"/>
+            <div>
+                <h1>Jauhar</h1>
+                <p>Skincare</p>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <i class="fas fa-shopping-cart" onclick="toggleMenu('side-menu2', 'menu-open2')"></i>
+            <i class="fas fa-bars" onclick="toggleMenu('side-menu', 'menu-open')"></i>
+        </div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <a class="menu-item" href="product.html">
+            Product
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="blog.html">
+            Blog
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="testimoni.html">
+            Review
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a class="menu-item" href="#">
+            About Us
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="logo">
+            <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+        </div>
+        <div class="brand-name">Jauhar Skincare</div>
+    </div>
+
+        <!-- Side Menu 2 -->
+        <div class="side-menu2" id="side-menu2">
+            <a class="menu-item2" href="product.html">
+                Tokopedia
+                <img class="tokped" src="tokped.png" alt="Tokopedia Icon">
+            </a>
+            <a class="menu-item2" href="blog.html">
+                Shopee
+                <img class="sopi" src="sopi.png" alt="Shopee Icon">
+            </a>
+            <div class="logo">
+                <img src="Logo Jauhar Skincare 1.png" alt="Logo"/>
+            </div>
+            <div class="brand-name2">Jauhar Skincare</div>
+        </div>
+
+        <!-- Etalase Produk -->
+        <div class="container">  
+            <div class="product-image">  
+                <div class="arrow left" onclick="changeProduct(-1)">  
+                    <i class="fas fa-chevron-left"></i>  
+                </div>  
+                <img id="product-image" alt="Product image" src="foto-1.png"/>  
+                <div class="arrow right" onclick="changeProduct(1)">  
+                    <i class="fas fa-chevron-right"></i>  
+                </div>  
+            </div>  
+            <div class="product-details">  
+                <div class="close">  
+                    <i class="fas fa-times"></i>  
+                </div>  
+                <h1 id="product-name">Facial Wash</h1>  
+                <div class="stars" id="product-stars">  
+                    <i class="fas fa-star"></i>  
+                    <i class="fas fa-star"></i>  
+                    <i class="fas fa-star"></i>  
+                    <i class="fas fa-star"></i>  
+                    <i class="fas fa-star-half-alt"></i>  
+                </div>  
+                <p id="product-description">Start your day with a fresh and calm face! Jauhar Gentle Facial Wash clears away dirt and oil without drying or irritating your skin. Made with gentle ingredients, it keeps your skin balanced and comfortable, so you can stay confident anytime</p>  
+                <div class="price" id="product-price">IDR 39,900</div>  
+                <div class="buy-button">  
+                    Buy  
+                    <i class="fas fa-arrow-right"></i>  
+                </div>  
+            </div>  
+        </div>  
+
+    <!-- Footer section -->
+    <div class="footer-container">
+        <div class="footer-column1">
+            <h2>We would love to hear from you.</h2>
+            <p>You can drop us a line via email</p>
+            <p><a class="email" href="mailto:jauharskincare@gmail" target="_blank">jauharskincare@gmail.com</a></p>
+        </div>
+        <div class="footer-column2">
+            <p class="highlight">Our address</p>
+            <p>Ketintang Wiyata Street</p>
+            <p>Wonokromo District</p>
+            <p>Surabaya City</p>
+            <p>East Java</p>
+            <p>Indonesia</p>
+        </div>
+        <div class="footer-column3">
+            <p>Home</p>
+            <p>Product</p>
+            <p>Blog</p>
+            <p>Testimoni</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="footer-column4">
+            <p class="highlight">Follow Us</p>
+            <p><a class="igdanwa" href="http://www.instagram.com/jauhar.skincare" target="_blank">Instagram</a></p>
+            <p><a class="igdanwa" href="https://wa.me/6285775754717" target="_blank">WhatsApp</a></p>
+        </div>
+    </div>
+    <!-- Script -->
+    <script>  
+        // Function to toggle menu  
+        function toggleMenu(menuId, menuClass) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuToToggle = document.getElementById(menuId);  
+    
+            // Cek apakah menu yang ingin dibuka sudah terbuka  
+            const isMenuOpen = menuToToggle.classList.contains(menuClass);  
+    
+            // Tutup semua menu terlebih dahulu  
+            menu1.classList.remove('menu-open');  
+            menu2.classList.remove('menu-open2');  
+    
+            // Jika menu yang diklik tidak terbuka, buka menu tersebut  
+            if (!isMenuOpen) {  
+                menuToToggle.classList.add(menuClass);  
+            }  
+        }  
+
+        // Close menu when clicking outside  
+        document.addEventListener('click', function(event) {  
+            const menu1 = document.getElementById('side-menu');  
+            const menuButton1 = document.querySelector('.navbar .nav-links i.fas.fa-bars');  
+            const menu2 = document.getElementById('side-menu2');  
+            const menuButton2 = document.querySelector('.navbar .nav-links i.fas.fa-shopping-cart');  
+    
+            if (!menu1.contains(event.target) && event.target !== menuButton1 && !menuButton1.contains(event.target)) {  
+                menu1.classList.remove('menu-open');  
+            }  
+            if (!menu2.contains(event.target) && event.target !== menuButton2 && !menuButton2.contains(event.target)) {  
+                menu2.classList.remove('menu-open2');  
+            }  
+        });  
+
+        // Array of products  
+        const products = [  
+            {  
+                name: "Facial Wash",  
+                image: "foto-1.png",  
+                stars: "★★★★★",  
+                description: "Start your day with a fresh and calm face! Jauhar Gentle Facial Wash clears away dirt and oil without drying or irritating your skin. Made with gentle ingredients, it keeps your skin balanced and comfortable, so you can stay confident anytime",  
+                price: "IDR 39,900"  
+            },  
+            {  
+                name: "Glow Serum",  
+                image: "foto-3.png",  
+                stars: "★★★★☆",  
+                description: "Jauhar Calm & Glow Serum is the secret behind glowing, healthy skin for modern guys. This serum deeply nourishes your skin, calms redness, and boosts elasticity for a fresh, radiant look. With regular use, you’ll notice a real difference in your skin’s texture and overall health.",  
+                price: "IDR 59,900"  
+            },  
+            {  
+                name: "Moisturizer",  
+                image: "foto-2.png",  
+                stars: "★★★★★",  
+                description: "No more worries about dry or irritated skin! Jauhar Comfort Moisturizer is made to give you max hydration without feeling heavy or sticky. Packed with soothing natural ingredients, it keeps your skin looking healthy and glowing all day, so you can stay confident.",  
+                price: "IDR 49,900"  
+            },  
+            {  
+                name: "Gentle Recovery Mask",  
+                image: "foto-6.png",  
+                stars: "★★★☆☆",  
+                description: "Give your skin some extra love with the Jauhar Gentle Recovery Mask. This mask helps restore skin vitality, soothes irritation, and delivers intense hydration. Perfect for unwinding after a long day, it leaves your skin feeling fresh, plump, and healthy.",  
+                price: "IDR 9,900"  
+            },  
+            {  
+                name: "Shooting Toner",  
+                image: "foto-5.png",  
+                stars: "★★★★★",  
+                description: "Say goodbye to redness and irritation with Jauhar Soothing Toner! Made for sensitive skin, it hydrates and preps your face for the next skincare steps. Feel refreshed and comfy after every use.",  
+                price: "IDR 55,000"  
+            },  
+            {  
+                name: "Sunscreen SPF 50",  
+                image: "foto1.png",  
+                stars: "★★★★☆",  
+                description: "Protect your skin from the sun with Jauhar Daily Defense Sunscreen. This sunscreen keeps you safe without that greasy feel, and it's made for sensitive skin. With SPF 50, you can enjoy the outdoors worry-free, no irritation or sunburn!",  
+                price: "IDR 45,000"  
+            }  
+        ];  
+
+        let currentIndex = 0;  
+        
+        // Function to change product  
+        function changeProduct(direction) {  
+            currentIndex += direction;  
+
+            // Loop around the product array  
+            if (currentIndex < 0) {  
+                currentIndex = products.length - 1;  
+            } else if (currentIndex >= products.length) {  
+                currentIndex = 0;  
+            }  
+
+            // Update the product details in the HTML  
+            updateProductDisplay();  
+        }  
+
+        // Function to update the display with current product's details  
+        function updateProductDisplay() {  
+            document.getElementById("product-name").textContent = products[currentIndex].name;  
+            document.getElementById("product-image").src = products[currentIndex].image;  
+            document.getElementById("product-description").textContent = products[currentIndex].description;  
+            document.getElementById("product-price").textContent = products[currentIndex].price;  
+            document.getElementById("product-stars").innerHTML = "";  
+
+            // Maintain the star rating display dynamically  
+            for (let i = 0; i < 5; i++) {  
+                if (i < Math.floor(products[currentIndex].stars.length)) {  
+                    document.getElementById("product-stars").innerHTML += '<i class="fas fa-star"></i>';  
+                } else {  
+                    document.getElementById("product-stars").innerHTML += '<i class="fas fa-star-half-alt"></i>';  
+                }  
+            }  
+        }  
+
+        // Initialize display  
+        updateProductDisplay();  
+    </script>
+    </body>
+</html>
